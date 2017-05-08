@@ -1,0 +1,25 @@
+[{
+    "id": 1,
+    "name": "Cut and colour",
+    "privider": "Winonna",
+    "price": 5.99,
+    "description": "Cut and colour"
+}, {
+    "id": 2,
+    "name": "Blow out",
+    "privider": "Heather",
+    "price": 10.99,
+    "description": "Blow out"
+}, {
+    "id": 3,
+    "name": "Cut and colourt",
+    "privider": "Heather",
+    "price": 7.99,
+    "description": "cut and colour"
+}, {
+    "id": 4,
+        "name": "Blow out",
+    "privider": "Winonna",
+    "price": 10.99,
+    "description": "Blow out"
+}]

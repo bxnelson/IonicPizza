@@ -3,24 +3,24 @@ import {Component, OnInit} from '@angular/core';
 import {NavParams} from 'ionic-angular';
 import 'rxjs/add/operator/toPromise';
 
-import {PizzaService} from '../../providers';
-import {Pizza} from '../../models';
+import {ServiceProviderService} from '../../providers';
+import {ServiceProvider} from '../../models';
 
 @Component({
   templateUrl: 'detail.component.html'
 })
 export class DetailComponent implements OnInit {
-  pizza: Pizza;
+  serviceprovider: ServiceProvider;
 
   constructor(
     private navParams: NavParams,
-    private pizzaService: PizzaService
+    private serviceproviderService: ServiceProviderService
   ) {}
 
   ngOnInit(): void {
-    this.pizzaService
-      .getPizza(this.navParams.get('id'))
+    this.serviceproviderService
+      .getServiceProvider(this.navParams.get('id'))
       .toPromise()
-      .then(pizza => this.pizza = pizza);
+      .then(serviceprovider => this.serviceprovider = serviceprovider);
   }
 }

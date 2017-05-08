@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 
-import {CartItem, Pizza} from '../models';
+import {CartItem, ServiceProvider} from '../models';
 
 @Injectable()
 export class CartService {
@@ -11,10 +11,10 @@ export class CartService {
     return this.cart;
   };
 
-  addCartItem(pizza: Pizza): void {
+  addCartItem(serviceprovider: ServiceProvider): void {
     this.cart.push({
-      name: pizza.name,
-      price: pizza.price
+      name: serviceprovider.name,
+      price: serviceprovider.price
     });
     this.statusChanged.emit({
       type: 'add',

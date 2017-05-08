@@ -1,1 +1,1 @@
-export * from './pizza-search.pipe';
+export * from './serviceprovider-search.pipe';

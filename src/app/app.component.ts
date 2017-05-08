@@ -13,7 +13,7 @@ import {CartService} from '../providers';
 @Component({
   templateUrl: './app.component.html'
 })
-export class PizzaAppComponent {
+export class ServiceProviderAppComponent {
   rootPage: any = OrderComponent;
   cartItemCount = 0;
   toastDuration = 500;

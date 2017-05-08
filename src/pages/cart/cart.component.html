@@ -3,7 +3,7 @@
     <button menuToggle ion-button icon-only>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Warenkorb</ion-title>
+    <ion-title>Shopping cart</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -23,7 +23,7 @@
     </ion-item-sliding>
   </ion-list>
   <p *ngIf="!cart.length" padding text-center>
-    Dein Warenkorb ist nocht leer!
+    Oh snap! you haven't picked a service yet. Head back and get exactly what you need when you need it
   </p>
 </ion-content>
 
@@ -31,10 +31,10 @@
   <ion-toolbar>
     <ion-row>
       <ion-col width-50>
-        <b>Gesamt:</b>
+        <b>Total:</b>
       </ion-col>
       <ion-col width-50 text-right>
-        <b>{{calcTotalSum() | currency:'EUR'}}</b>
+        <b>{{calcTotalSum() | currency:'CAD'}}</b>
       </ion-col>
     </ion-row>
   </ion-toolbar>

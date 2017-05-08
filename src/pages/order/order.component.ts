@@ -6,42 +6,42 @@ import {Observable} from 'rxjs/Observable';
 import {DetailComponent} from '../detail/detail.component';
 
 import {CartComponent} from '../cart/cart.component';
-import {PizzaService, CartService} from '../../providers';
-import {Pizza} from '../../models';
+import {ServiceProviderService, CartService} from '../../providers';
+import {ServiceProvider} from '../../models';
 
 @Component({
   templateUrl: 'order.component.html',
 })
 export class OrderComponent implements OnInit {
-  pizzas: Pizza[] = [];
+  serviceproviders: ServiceProvider[] = [];
   loading: boolean;
-  pizzaSource: Observable<Pizza[]>;
+  serviceproviderSource: Observable<ServiceProvider[]>;
   @Input() search: string = "";
 
   constructor(
-    private pizzaService: PizzaService,
+    private serviceproviderService: ServiceProviderService,
     private cartService: CartService,
     private nav: NavController
   ) {}
 
   ngOnInit() {
     this.loading = true;
-    const subscription = this.pizzaService.getPizzas().subscribe(pizzas => {
-      this.pizzas = pizzas;
+    const subscription = this.serviceproviderService.getServiceProviders().subscribe(serviceproviders => {
+      this.serviceproviders = serviceproviders;
       this.loading = false;
       subscription.unsubscribe();
     }, () => this.loading = false);
   }
 
   doRefresh(refresher: Refresher) {
-    const subscription = this.pizzaService.getPizzas().subscribe(pizzas => {
-      this.pizzas = pizzas;
+    const subscription = this.serviceproviderService.getServiceProviders().subscribe(serviceproviders => {
+      this.serviceproviders = serviceproviders;
       refresher.complete()
       subscription.unsubscribe();
     }, () => refresher.complete());
   }
 
-  openPizza(id: number) {
+  openServiceProvider(id: number) {
     this.nav.push(DetailComponent, {
       id: id
     });
@@ -51,9 +51,9 @@ export class OrderComponent implements OnInit {
     this.nav.push(CartComponent);
   }
 
-  addToCart($event, pizza: Pizza) {
+  addToCart($event, serviceprovider: ServiceProvider) {
     $event.stopPropagation();
 
-    this.cartService.addCartItem(pizza);
+    this.cartService.addCartItem(serviceprovider);
   }
 }
